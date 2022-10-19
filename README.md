@@ -26,11 +26,11 @@ https://drive.google.com/file/d/1rU8XIy20HpF85QgwScWWWxwTJ-Hw6WGJ/view?usp=shari
 
 ##### Test the model's F1-score on Web-Test dataset:
 
-###### For GADE:
+-- For GADE:
 
 * python GADE_main_Web_Test.py
 
-###### For GADE-local:
+-- For GADE-local:
 
 * python GADE_local_main_Web_Test.py
 
