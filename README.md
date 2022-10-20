@@ -7,30 +7,31 @@
 
 
 ### Datasets
-We construct four labeled datasets for the targeted document detection task, i.e., Wiki-100, Wiki-200, Wiki-300, and Web-Test. The former three datasets are
+We construct four labeled datasets for the targeted document detection task, i.e., `Wiki-100`, `Wiki-200`, `Wiki-300`, and `Web-Test`. The former three datasets are
 constructed from Wikipedia and the last dataset is constructed from Web documents.
 
-* Please download the Wiki-100, Wiki-200, Wiki-300, and Web-Test datasets from this webpage: 
+* The four labeled datasets `Wiki-100`, `Wiki-200`, `Wiki-300`, and `Web-Test` are placed in the `datasets` folder. Please download the datasets.zip from this webpage: 
 https://drive.google.com/file/d/1rU8XIy20HpF85QgwScWWWxwTJ-Hw6WGJ/view?usp=sharing
 
+* Then unzip `datasets.zip` under `./datasets/`
 
 ### Usage
 
-##### Run the main code (GADE):
+##### Run the main code (**GADE**):
 
 * python GADE_main_Wiki.py --model_name GADE_300 --data_type Wiki300
 
-##### Run the main code for the base architecture GADE-local:
+##### Run the main code for the base architecture **GADE-local**:
 
 * python GADE_local_main_Wiki.py --model_name GADE_local_300 --data_type Wiki300
 
 ##### Test the model's F1-score on Web-Test dataset:
 
--- For GADE:
+-- For **GADE**:
 
 * python GADE_main_Web_Test.py
 
--- For GADE-local:
+-- For **GADE-local**:
 
 * python GADE_local_main_Web_Test.py
 
