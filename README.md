@@ -33,7 +33,7 @@ https://drive.google.com/file/d/1rU8XIy20HpF85QgwScWWWxwTJ-Hw6WGJ/view?usp=shari
 
 * python GADE_local_main_Wiki.py --model_name GADE_local_300 --data_type Wiki300
 
-##### Test the model's F1-score on Web-Test dataset:
+##### Test the model's performance on Web-Test dataset:
 
 -- For **GADE**:
 
