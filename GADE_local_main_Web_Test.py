@@ -8,13 +8,13 @@ import torch.nn.functional as F
 import numpy as np
 from numpy import mean
 import argparse
-from dataset_generation import *
+from utils.dataset_generation import *
 from torch.utils.data import DataLoader
 from logger import set_logger
-from utils import *
+from utils.utils import *
 from pytorch_transformers import AdamW, WarmupLinearSchedule
 
-from GADE_local import GADE_local
+from GADE_framework.GADE_local import GADE_local
 
 # os.environ["CUDA_VISIBLE_DEVICE"] = "0, 1"
 
