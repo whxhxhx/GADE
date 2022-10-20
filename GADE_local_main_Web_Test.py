@@ -130,7 +130,7 @@ if __name__ == '__main__':
     parser.add_argument('--entity_path', type=str, default='datasets/Web_Test/target_entities.txt')
     parser.add_argument('--data_path', type=str, default='datasets/Web_Test/TDD_dataset.json')
     parser.add_argument('--description_path', type=str, default='datasets/Web_Test/entity_desc.json')
-    parser.add_argument('--checkpoint_path', default="./saved_ckpt/GADE_300", type=str)
+    parser.add_argument('--checkpoint_path', default="./saved_ckpt/GADE_300_Web", type=str)
 
     # Device
     parser.add_argument('--gpu', type=int, default=[0,1], nargs='+')
