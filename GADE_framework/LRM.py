@@ -29,9 +29,11 @@ class LRM(nn.Module):
         self.dim = 768
 
         self.similarity_network = nn.Sequential(
-            nn.Linear(2 * self.dim, self.dim),
-            nn.ReLU(),
-            nn.Linear(self.dim, 1)
+            nn.Linear(2 * self.dim, self.dim//6),
+            nn.Tanh(),
+            nn.Linear(self.dim//6, self.dim//12),
+            nn.Tanh(),
+            nn.Linear(self.dim//12, 1)
         )
 
     def encode_feature(self, cand_docs):
