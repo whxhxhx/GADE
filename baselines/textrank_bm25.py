@@ -64,8 +64,8 @@ class TextRank_BM25(object):
         doc = nlp(query)
         all_kw = []
         mention = word_tokenize(mention)
-        mention.remove('(')
-        mention.remove(')')
+        # mention.remove('(')
+        # mention.remove(')')
         all_kw.extend(mention)
         for p in doc._.phrases:
             all_kw.append(p.text)
