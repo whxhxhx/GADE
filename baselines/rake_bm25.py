@@ -53,8 +53,8 @@ class Rake_BM25(object):
         query = ' '.join(query)
         # mention = mention.split(' ')
         mention = word_tokenize(mention)
-        mention.remove('(')
-        mention.remove(')')
+        # mention.remove('(')
+        # mention.remove(')')
         r.extract_keywords_from_text(query)
         m_len = len(mention)
         phrases = r.get_ranked_phrases()[:max_keyw-m_len]
