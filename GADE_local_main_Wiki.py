@@ -177,7 +177,7 @@ if __name__ == '__main__':
     ent_list = load_entity_list(args.entity_path)
 
     for i in range(kfold):
-        logger.info("The {}-th fold training begins!".format(i))
+        
         model = GADE_local(max_seq_length=args.max_seq_length, device=args.gpu)
         tokenizer = model.tokenizer
         input_tokens, label_inputs, desc_tokens = generate_data(ent_list, args.description_path,
@@ -220,6 +220,7 @@ if __name__ == '__main__':
             os.makedirs(checkpoint_path)
 
         logger = set_logger(os.path.join(log_dir, str(time.time()) + "_" + args.model_name + ".log"))
+        logger.info("The {}-th fold training begins!".format(i))
 
         start_epoch = 0
         start_f1 = 0.0
