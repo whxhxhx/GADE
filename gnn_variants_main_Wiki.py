@@ -179,7 +179,7 @@ if __name__ == '__main__':
         lrm = LRM(max_seq_length=args.max_seq_length, device=args.gpu)
         # global interaction model
         if args.model_name == 'SGC':
-            gim = SGC(dims=[gcn_dim] * (args.gcn_layer + 1), dropout=args.dropout)
+            gim = SGC(nfeat=gcn_dim, nclass=2, dims=[gcn_dim] * (args.gcn_layer + 1), dropout=args.dropout)
         else:
             gim = GCNII([gcn_dim] * (args.gcn_layer + 1), dropout=args.dropout, lamda=args.lamda, alpha=args.alpha, variant=args.variant)
         tokenizer = lrm.tokenizer
