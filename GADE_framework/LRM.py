@@ -16,7 +16,7 @@ class LRM(nn.Module):
         self.device = torch.device("cuda")
         self.max_seq_length = max_seq_length
 
-        self.encoder_pretrain_path = '../plms/bert-base-uncased'
+        self.encoder_pretrain_path = './plms/bert-base-uncased'
         self.tokenizer = BertTokenizer.from_pretrained(self.encoder_pretrain_path, do_lower_case=True)
         self.config = BertConfig.from_pretrained(self.encoder_pretrain_path)
 
@@ -31,11 +31,9 @@ class LRM(nn.Module):
         self.dim = 768
 
         self.similarity_network = nn.Sequential(
-            nn.Linear(2 * self.dim, self.dim//6),
-            nn.Tanh(),
-            nn.Linear(self.dim//6, self.dim//12),
-            nn.Tanh(),
-            nn.Linear(self.dim//12, 1)
+            nn.Linear(2 * self.dim, self.dim),
+            nn.ReLU(),
+            nn.Linear(self.dim, 1)
         )
 
     def encode_feature(self, cand_docs):
@@ -44,9 +42,9 @@ class LRM(nn.Module):
         input_masks = []
 
         for s in cand_docs["input_tokens"]:
-            tokens = ["[CLS]"] + cand_docs["description_token"] + ["[SEP]"] + s + ["[SEP]"]
+            tokens = ["[CLS]"] + s + ["[SEP]"] + cand_docs["description_token"] + ["[SEP]"]
             tokens = self.tokenizer.convert_tokens_to_ids(tokens)
-            seg_pos = len(cand_docs["description_token"]) + 2
+            seg_pos = len(s) + 2
             seg_ids = [0] * seg_pos + [1] * (len(tokens) - seg_pos)
             mask = [1] * len(tokens)
             padding = [0] * (self.max_seq_length - len(tokens))
