@@ -19,7 +19,7 @@ class GraphConvLayer(nn.Module):
         self.in_dim = in_dim
         self.out_dim = out_dim
         self.aggregator = aggregator()
-        self.weight = nn.Parameter(torch.FloatTensor(in_dim, out_dim))
+        self.weight = nn.Parameter(torch.FloatTensor(in_dim*2, out_dim))
         self.bias = nn.Parameter(torch.FloatTensor(out_dim))
         nn.init.xavier_uniform_(self.weight)
         nn.init.constant_(self.bias, 0)
@@ -30,6 +30,7 @@ class GraphConvLayer(nn.Module):
         batch, node_num, d = features.shape
         assert d == self.in_dim
         agg_features = self.aggregator(features, A)
+        agg_features = torch.cat([features, agg_features], dim=-1)
         out_features = torch.einsum('bnd,df->bnf', (agg_features, self.weight))
         out_features += self.bias
         out = F.relu(out_features)
