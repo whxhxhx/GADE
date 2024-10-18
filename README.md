@@ -1,6 +1,7 @@
 # Ambiguous Entity Oriented Targeted Document Detection
+  The official implementation for ICDE'24 paper "Ambiguous Entity Oriented Targeted Document Detection". 
+  
 ## Dependencies
-
 * Compatible with Python 3.7
 * Dependencies can be installed using requirements.txt
 
